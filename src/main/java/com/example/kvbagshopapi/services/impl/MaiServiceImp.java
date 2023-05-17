@@ -41,19 +41,19 @@ public class MaiServiceImp implements IMailService {
     public void sendOrderMail(UserDto userDto, OrderDto orderDto, List<OrderItemDto> orderItemDtos) {
         /// Mail
         Mail mail = new Mail();
-        mail.setMailFrom("phancongtu25032002@gmail.com");
+        mail.setMailFrom("phanduykhanh2002@.com");
         mail.setMailTo(userDto.getEmail());
-        mail.setMailSubject("TL Store - Bạn đặt hàng thành công");
+        mail.setMailSubject("KVbalu - Bạn đặt hàng thành công");
         String Content = "Tổng số tiền của đơn hàng của bạn là: $" + orderDto.getTotal() +"\n";
         int index = 1;
         for (OrderItemDto OID : orderItemDtos) {
             Content += index +". Tên sản phẩm: " +  OID.getProduct().getProductName() +"\n";
             index ++;
         }
-        Content += "Sản phẩm được đặt bởi: " + userDto.getUserName() + "\n";
+       /* Content += "Sản phẩm được đặt bởi: " + userDto.getUserName() + "\n";
         Content += "Sản phẩm được đưa tới địa chỉ: " + orderDto.getAddress()+ "\n";
-        Content += "Số điện thoại nhận hàng: " + orderDto.getPhoneNumber()+ "\n";
-        Content += "TL Store xin chân thành cảm ơn!";
+        Content += "Số điện thoại nhận hàng: " + orderDto.getPhoneNumber()+ "\n";*/
+        Content += "KVbalu xin chân thành cảm ơn!";
         mail.setMailContent(Content);
         sendEmail(mail);
     }
